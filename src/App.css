@@ -1,0 +1,1569 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+/* =========================================
+   DIEGO TARDON — PORTFOLIO
+   1. Tokens y base
+   2. Navbar
+   3. Hero Y2K
+   4. Secciones (proyectos, experiencia, habilidades)
+   5. Footer
+   6. Animaciones globales
+   7. Responsive
+   8. Accesibilidad
+========================================= */
+
+/* =========================================
+   1. TOKENS Y BASE
+========================================= */
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color-scheme: dark;
+
+  /* Colores */
+  --bg: #15131c;
+  --surface: #211c2b;
+  --surface-light: #30283d;
+  --purple: #b08af5;
+  --purple-dark: #8051d9;
+  --purple-soft: #d7beff;
+  --text: #f5f1fa;
+  --muted: #b7aec5;
+  --border: rgba(190, 166, 224, 0.16);
+  --border-strong: #51415f;
+
+  /* Tipografía */
+  --font-display: "Space Grotesk", sans-serif;
+
+  /* Movimiento */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-soft: cubic-bezier(0.45, 0, 0.25, 1);
+
+  /* Layout */
+  --nav-height: 76px;
+  --radius-sm: 9px;
+  --radius-md: 16px;
+  --radius-lg: 18px;
+
+  /* Imagen del hero (se puede cambiar sin tocar las máscaras) */
+  --y2k-image: url("/hero-y2k.png");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+  overflow: clip;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(1180px, 88%);
+  margin-inline: auto;
+}
+
+.logo {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo span,
+.section-heading h2 span {
+  color: var(--purple);
+}
+
+#inicio,
+#proyectos,
+#experiencia,
+#habilidades,
+#contacto {
+  scroll-margin-top: 80px;
+}
+
+/* =========================================
+   2. NAVBAR
+========================================= */
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+
+  background: rgba(23, 20, 32, 0.94);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  width: min(1440px, 92%);
+  height: var(--nav-height);
+  margin-inline: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--purple);
+}
+
+.nav-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 12px 20px;
+  border: 1px solid #5b4b70;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-contact:hover {
+  background: var(--purple-dark);
+  border-color: var(--purple-dark);
+}
+
+.mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+
+  color: white;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mobile-menu-button:hover,
+.mobile-menu-button[aria-expanded="true"] {
+  background: rgba(176, 138, 245, 0.13);
+  border-color: #6e518d;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu-bottom {
+  color: #a99ab9;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+/* =========================================
+   3. HERO Y2K
+========================================= */
+
+.hero.hero-y2k {
+  position: relative;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+
+  min-height: 100svh;
+  padding: 130px 0 110px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(ellipse at 78% 45%, rgba(113, 73, 179, 0.2), transparent 55%),
+    linear-gradient(120deg, #111019, #1d1729 70%, #261b35);
+}
+
+/* Suelo de rejilla estilo Y2K con perspectiva */
+.hero.hero-y2k::before {
+  content: "";
+  position: absolute;
+  inset: auto -15% 0;
+  z-index: -1;
+  height: 48%;
+
+  background:
+    linear-gradient(rgba(176, 138, 245, 0.2) 1px, transparent 1px) 0 0 / 100% 52px,
+    linear-gradient(90deg, rgba(176, 138, 245, 0.2) 1px, transparent 1px) 0 0 / 52px 100%;
+
+  transform: perspective(520px) rotateX(64deg);
+  transform-origin: bottom;
+
+  -webkit-mask-image: linear-gradient(to top, #000 5%, transparent 85%);
+  mask-image: linear-gradient(to top, #000 5%, transparent 85%);
+
+  animation: y2kGrid 5s linear infinite;
+  pointer-events: none;
+}
+
+.hero.hero-y2k > .container {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, 88%);
+}
+
+.hero-y2k-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(28px, 4vw, 70px);
+  width: 100%;
+}
+
+/* Texto: entrada escalonada de cada bloque */
+.hero-y2k-content {
+  min-width: 0;
+}
+
+.hero-y2k-content > * {
+  animation: fadeUp 0.8s var(--ease-out) both;
+}
+
+.hero-y2k-content > :nth-child(1) { animation-delay: 0.05s; }
+.hero-y2k-content > :nth-child(2) { animation-delay: 0.15s; }
+.hero-y2k-content > :nth-child(3) { animation-delay: 0.25s; }
+.hero-y2k-content > :nth-child(4) { animation-delay: 0.35s; }
+.hero-y2k-content > :nth-child(5) { animation-delay: 0.45s; }
+
+.hero-y2k-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 28px;
+}
+
+.hero-y2k-tags span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 12px;
+  border: 1px solid #504061;
+  border-radius: 999px;
+
+  background: rgba(60, 44, 80, 0.38);
+  color: #e2d9ef;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.hero-y2k-eyebrow {
+  display: block;
+  margin: 0 0 20px;
+
+  color: #b7a0f9;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero.hero-y2k .hero-y2k-title {
+  margin: 0 0 24px;
+
+  font-family: var(--font-display);
+  font-size: clamp(48px, 5.1vw, 82px);
+  font-weight: 500;
+  line-height: 1.07;
+  letter-spacing: -0.065em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Degradado animado en la línea destacada del título */
+.hero.hero-y2k .hero-y2k-title span {
+  display: block;
+
+  background: linear-gradient(100deg, #b08af5, #e0c8ff, #8fd8ff, #b08af5);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--purple);
+
+  animation: y2kTitleGradient 9s linear infinite;
+}
+
+.hero-y2k-description {
+  max-width: 520px;
+  margin: 0;
+
+  color: #bcb3ca;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.hero-y2k-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.hero-y2k-primary,
+.hero-y2k-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 50px;
+  padding: 12px 19px;
+
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero-y2k-primary {
+  color: white;
+  background: var(--purple-dark);
+  border: 1px solid var(--purple-dark);
+}
+
+.hero-y2k-primary:hover {
+  background: #9868eb;
+  box-shadow: 0 10px 28px rgba(128, 81, 217, 0.45);
+  transform: translateY(-3px);
+}
+
+.hero-y2k-secondary {
+  color: #f4effa;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid #5c4b6b;
+}
+
+.hero-y2k-secondary:hover {
+  background: #342641;
+  border-color: var(--purple);
+  transform: translateY(-3px);
+}
+
+/* ---------- Estatua Y2K ---------- */
+
+.hero-y2k-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+}
+
+/*
+  Capas de movimiento (no se pisan entre sí):
+  - transform  → inclinación 3D con el mouse (--tilt-x / --tilt-y)
+  - translate  → flotación
+  - rotate     → balanceo
+  - scale/opacity/filter → entrada
+*/
+.y2k-stage {
+  --tilt-x: 0;
+  --tilt-y: 0;
+
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 900 / 822;
+  isolation: isolate;
+
+  transform:
+    perspective(1000px)
+    rotateX(calc(var(--tilt-y) * 1deg))
+    rotateY(calc(var(--tilt-x) * 1deg));
+  transition: transform 0.35s var(--ease-out);
+  will-change: transform, translate, rotate;
+
+  animation:
+    y2kEnter 1s var(--ease-out) 0.2s both,
+    y2kFloat 7s var(--ease-soft) 1.2s infinite;
+}
+
+/* Halo de luz que respira detrás de la estatua */
+.y2k-stage::before {
+  content: "";
+  position: absolute;
+  inset: 8% 6%;
+  z-index: -2;
+
+  background:
+    radial-gradient(closest-side, rgba(176, 138, 245, 0.55), transparent 70%),
+    radial-gradient(closest-side at 70% 30%, rgba(0, 220, 255, 0.25), transparent 65%);
+  filter: blur(28px);
+
+  animation: y2kHalo 7s var(--ease-soft) infinite;
+  pointer-events: none;
+}
+
+/* Sombra en el suelo: se encoge cuando la estatua sube */
+.y2k-stage::after {
+  content: "";
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  bottom: -4%;
+  z-index: -1;
+  height: 7%;
+
+  background: radial-gradient(closest-side, rgba(128, 81, 217, 0.55), transparent);
+  filter: blur(8px);
+
+  animation: y2kGroundShadow 7s var(--ease-soft) 1.2s infinite;
+  pointer-events: none;
+}
+
+.y2k-main-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 30px rgba(124, 70, 218, 0.22));
+}
+
+/* Capas con la silueta de la imagen como máscara */
+.y2k-rainbow,
+.y2k-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  -webkit-mask: var(--y2k-image) center / contain no-repeat;
+  mask: var(--y2k-image) center / contain no-repeat;
+}
+
+/* Reflejo iridiscente */
+.y2k-rainbow {
+  background: linear-gradient(
+    120deg,
+    #ff00ff,
+    #00ffff,
+    #aa7bff,
+    #ff00ff
+  );
+  background-size: 300% 100%;
+  mix-blend-mode: color;
+
+  animation:
+    y2kRainbow 10s linear infinite,
+    y2kIridescence 7s var(--ease-soft) infinite;
+}
+
+/* Brillo cromado: barrido rápido y pausa larga */
+.y2k-shine {
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 65%
+  );
+  background-size: 250% 100%;
+  background-position: -150% 0;
+  mix-blend-mode: soft-light;
+
+  animation: y2kShine 6s var(--ease-soft) infinite;
+}
+
+/* Destellos: cada uno con su propio tamaño, ritmo y posición */
+.y2k-sparkle {
+  --size: 24px;
+  --dur: 4s;
+  --delay: 0s;
+  --x: 50%;
+  --y: 50%;
+
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: var(--size);
+  aspect-ratio: 1;
+
+  background: #fff;
+  clip-path: polygon(
+    50% 0%, 58% 42%, 100% 50%, 58% 58%,
+    50% 100%, 42% 58%, 0% 50%, 42% 42%
+  );
+  filter: drop-shadow(0 0 8px #b58dff);
+  opacity: 0;
+  pointer-events: none;
+
+  animation: y2kTwinkle var(--dur) ease-in-out var(--delay) infinite;
+}
+
+.sparkle-one   { --x: 60%; --y: 10%; --size: 26px; --dur: 4s;   --delay: 0s; }
+.sparkle-two   { --x: 22%; --y: 43%; --size: 18px; --dur: 3.4s; --delay: -1s; }
+.sparkle-three { --x: 78%; --y: 66%; --size: 22px; --dur: 4.6s; --delay: -2s; }
+.sparkle-four  { --x: 43%; --y: 82%; --size: 16px; --dur: 3.8s; --delay: -3s; }
+.sparkle-five  { --x: 85%; --y: 28%; --size: 14px; --dur: 3.2s; --delay: -1.6s; }
+.sparkle-six   { --x: 12%; --y: 72%; --size: 20px; --dur: 5s;   --delay: -2.6s; }
+
+/* Indicador de scroll */
+.hero-y2k-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+
+  transform: translateX(-50%);
+
+  color: #a396b3;
+  font-size: 11px;
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.hero-y2k-scroll:hover {
+  color: var(--purple);
+}
+
+/* =========================================
+   4. SECCIONES GENERALES
+========================================= */
+
+.section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+  margin-bottom: 42px;
+}
+
+.section-eyebrow {
+  display: inline-block;
+
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin: 16px 0 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 65px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+
+.section-heading > p {
+  max-width: 390px;
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ---------- Proyectos ---------- */
+
+.projects-section {
+  background: #1c1925;
+  border-top: 1px solid var(--border);
+}
+
+.portfolio-projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.portfolio-project-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+
+  background: #2b2536;
+  border: 1px solid rgba(190, 166, 224, 0.18);
+  border-radius: var(--radius-lg);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.portfolio-project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--purple);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.portfolio-project-media {
+  position: relative;
+  display: block;
+  padding: 14px 14px 0;
+
+  overflow: hidden;
+  background: linear-gradient(135deg, #3d2954, #201b2b);
+}
+
+.portfolio-project-card.campus .portfolio-project-media {
+  background: linear-gradient(135deg, #424b79, #25243b);
+}
+
+/* Marco tipo navegador */
+
+.browser-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  height: 34px;
+  padding: 0 12px;
+
+  background: #211c29;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+
+  color: #c6bfd2;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.browser-dots span:nth-child(1) { background: #fa7777; }
+.browser-dots span:nth-child(2) { background: #edc16e; }
+.browser-dots span:nth-child(3) { background: #75c99c; }
+
+.browser-address {
+  flex: 1;
+  min-width: 0;
+
+  color: #aca4bb;
+  font-size: 10px;
+  text-align: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-preview {
+  position: relative;
+  aspect-ratio: 16 / 9;
+
+  background: #191522;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 0;
+
+  overflow: hidden;
+}
+
+.project-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: top center;
+
+  transition: transform 0.45s ease;
+}
+
+.portfolio-project-card:hover .project-preview img {
+  transform: scale(1.025);
+}
+
+.project-image-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+
+  color: #b89ce9;
+  text-align: center;
+}
+
+.project-image-fallback strong {
+  font-family: var(--font-display);
+  color: white;
+  font-size: 24px;
+}
+
+.project-image-fallback span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.project-hover-link {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+
+  background: var(--purple-dark);
+  color: white;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-project-card:hover .project-hover-link,
+.portfolio-project-media:focus-visible .project-hover-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-project-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+}
+
+.portfolio-project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.portfolio-project-number {
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.portfolio-project-subtitle {
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+}
+
+.portfolio-project-details h3 {
+  margin: 0 0 10px;
+
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: -1px;
+}
+
+.portfolio-project-details > p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tech-tags span {
+  padding: 6px 9px;
+
+  background: #352b42;
+  border: 1px solid #51435f;
+  border-radius: 6px;
+
+  color: #d4c8e0;
+  font-size: 10px;
+}
+
+.portfolio-project-visit {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+
+  margin-top: auto;
+  padding-top: 22px;
+
+  color: var(--purple-soft);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.portfolio-project-visit:hover {
+  color: white;
+}
+
+.github-more {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  width: fit-content;
+  margin: 45px auto 0;
+  padding: 15px 24px;
+
+  border: 1px solid #62536d;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.github-more:hover {
+  background: #342641;
+  border-color: var(--purple);
+}
+
+/* ---------- Experiencia y formación ---------- */
+
+.experience-section {
+  padding: 90px 0;
+  background: #191620;
+}
+
+.experience-section .section-heading,
+.skills-section .section-heading {
+  margin-bottom: 35px;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.career-card {
+  min-width: 0;
+  padding: 28px;
+
+  background: #292335;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple);
+}
+
+.career-icon {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+
+  background: #3e3050;
+  border-radius: 12px;
+  color: var(--purple);
+}
+
+.career-label {
+  display: block;
+  margin-bottom: 10px;
+
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.career-card h3 {
+  margin: 0 0 7px;
+
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+
+.career-place {
+  margin: 0 0 18px;
+
+  color: #d7c6ed;
+  font-size: 13px;
+}
+
+.career-description {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.career-card .tech-tags {
+  margin-top: 20px;
+}
+
+.career-projects {
+  background: linear-gradient(145deg, #342846, #292335);
+}
+
+.career-focus {
+  background: linear-gradient(145deg, #30263f, #292335);
+}
+
+.career-link {
+  display: inline-flex;
+  margin-top: 22px;
+
+  color: #c8adff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.career-link:hover {
+  color: white;
+}
+
+/* ---------- Habilidades ---------- */
+
+.skills-section {
+  padding: 90px 0;
+
+  background: #201b2b;
+  border-block: 1px solid var(--border);
+}
+
+.skills-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.skill-compact-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+
+  min-width: 0;
+  min-height: 115px;
+  padding: 17px 10px;
+
+  background: var(--surface-light);
+  border: 1px solid #4b3e5e;
+  border-radius: 13px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.skill-compact-card span {
+  color: #ede7f4;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.skill-compact-card:hover {
+  transform: translateY(-5px);
+  background: #3c304d;
+  border-color: var(--purple);
+}
+
+/* =========================================
+   5. FOOTER
+========================================= */
+
+.footer {
+  padding: 35px 0;
+  background: #17141f;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-inner p {
+  margin: 9px 0 0;
+
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--muted);
+  font-size: 13px;
+
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover,
+.footer-email:hover {
+  color: var(--purple);
+}
+
+.footer-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  max-width: 100%;
+
+  color: #d6c5ee;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+
+  transition: color 0.25s ease;
+}
+
+.footer-email svg:first-child {
+  color: var(--purple);
+  flex-shrink: 0;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer-right a {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: white;
+}
+
+.footer-right a:hover {
+  background: #342641;
+}
+
+/* =========================================
+   6. ANIMACIONES
+========================================= */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mobileMenuEnter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Reveal.tsx */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms var(--ease-out);
+
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Hero Y2K ---------- */
+
+/* Entrada: aparece con desenfoque y un pequeño zoom */
+@keyframes y2kEnter {
+  from {
+    opacity: 0;
+    scale: 0.88;
+    filter: blur(14px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    filter: blur(0);
+  }
+}
+
+/* Flotación suave con balanceo */
+@keyframes y2kFloat {
+  0%, 100% { translate: 0 0;     rotate: -1.2deg; }
+  50%      { translate: 0 -18px; rotate: 1.2deg; }
+}
+
+/* El halo late al mismo ritmo que la flotación */
+@keyframes y2kHalo {
+  0%, 100% { opacity: 0.55; scale: 0.94; }
+  50%      { opacity: 1;    scale: 1.06; }
+}
+
+/* La sombra se aleja del suelo cuando la estatua sube */
+@keyframes y2kGroundShadow {
+  0%, 100% { scale: 1;    opacity: 0.8; }
+  50%      { scale: 0.78; opacity: 0.4; }
+}
+
+/* Iridiscencia que va y viene */
+@keyframes y2kRainbow {
+  to { background-position: 300% 0; }
+}
+
+@keyframes y2kIridescence {
+  0%, 100% { opacity: 0.08; }
+  50%      { opacity: 0.22; }
+}
+
+/* Barrido de brillo y luego pausa (45% → 100%) */
+@keyframes y2kShine {
+  0%   { background-position: -150% 0; }
+  45%  { background-position: 250% 0; }
+  100% { background-position: 250% 0; }
+}
+
+@keyframes y2kTwinkle {
+  0%, 100% { opacity: 0;   transform: scale(0.3) rotate(0deg); }
+  50%      { opacity: 0.95; transform: scale(1)   rotate(90deg); }
+}
+
+@keyframes y2kTitleGradient {
+  to { background-position: 250% 0; }
+}
+
+/* La rejilla avanza hacia el espectador */
+@keyframes y2kGrid {
+  to { background-position: 0 52px, 52px 0; }
+}
+
+/* =========================================
+   7. RESPONSIVE
+========================================= */
+
+@media (max-width: 1050px) {
+  .portfolio-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-compact-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .hero-y2k-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .hero.hero-y2k {
+    min-height: auto;
+    padding: 125px 0 80px;
+  }
+
+  .y2k-stage {
+    max-width: 520px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 36px);
+  }
+
+  /* Navegación */
+
+  .nav-inner {
+    width: calc(100% - 36px);
+    height: 68px;
+  }
+
+  .nav-links,
+  .nav-contact {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+
+    padding: 8px 20px 18px;
+
+    background: #211a2c;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-strong);
+
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
+    animation: mobileMenuEnter 0.22s ease-out;
+  }
+
+  .mobile-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 14px 4px;
+    border-bottom: 1px solid rgba(190, 166, 224, 0.1);
+
+    color: #eee6f6;
+    font-size: 14px;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--purple);
+  }
+
+  .mobile-menu-bottom {
+    padding: 14px 5px 5px;
+    font-size: 9px;
+  }
+
+  /* Hero */
+
+  .hero.hero-y2k {
+    padding: 110px 0 70px;
+  }
+
+  .hero.hero-y2k::before {
+    height: 32%;
+  }
+
+  .hero.hero-y2k > .container {
+    width: calc(100% - 36px);
+  }
+
+  .hero-y2k-layout {
+    gap: 28px;
+  }
+
+  .hero-y2k-tags {
+    margin-bottom: 23px;
+  }
+
+  .hero-y2k-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.3px;
+  }
+
+  .hero.hero-y2k .hero-y2k-title {
+    font-size: clamp(42px, 10vw, 60px);
+    margin-bottom: 20px;
+  }
+
+  .hero-y2k-description {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .hero-y2k-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .hero-y2k-primary {
+    grid-column: 1 / -1;
+  }
+
+  .hero-y2k-actions a {
+    min-width: 0;
+    padding: 13px 10px;
+    font-size: 12px;
+  }
+
+  .y2k-stage {
+    max-width: 430px;
+  }
+
+  .y2k-sparkle {
+    --size: 16px;
+  }
+
+  .hero-y2k-scroll {
+    display: none;
+  }
+
+  /* Secciones */
+
+  .section {
+    padding: 65px 0;
+  }
+
+  .section-heading {
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(33px, 8vw, 46px);
+  }
+
+  .section-heading > p {
+    font-size: 13px;
+  }
+
+  /* Proyectos */
+
+  .portfolio-projects {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .portfolio-project-media {
+    padding: 12px 12px 0;
+  }
+
+  .portfolio-project-details h3 {
+    font-size: 23px;
+  }
+
+  .project-hover-link {
+    display: none;
+  }
+
+  .portfolio-project-visit {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .browser-address {
+    font-size: 9px;
+  }
+
+  /* Experiencia */
+
+  .career-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .career-card {
+    padding: 23px;
+  }
+
+  /* Habilidades */
+
+  .skills-compact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .skill-compact-card {
+    min-height: 100px;
+    padding: 12px 8px;
+  }
+
+  .skill-compact-card span {
+    font-size: 11px;
+  }
+
+  /* Footer */
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-email {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero.hero-y2k .hero-y2k-title {
+    font-size: 42px;
+  }
+
+  .skills-compact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-email {
+    font-size: 11px;
+  }
+}
+
+/* Dispositivos táctiles: sin hover ni inclinación */
+@media (hover: none) {
+  .portfolio-project-card:hover,
+  .career-card:hover,
+  .skill-compact-card:hover {
+    transform: none;
+  }
+
+  .y2k-stage {
+    transform: none;
+  }
+}
+
+/* =========================================
+   8. ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .y2k-stage {
+    transform: none;
+  }
+
+  .y2k-sparkle {
+    display: none;
+  }
+}
