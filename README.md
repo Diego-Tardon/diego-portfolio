@@ -1,32 +1,99 @@
-# React + TypeScript + Vite
+# Diego Tardón — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+### Desarrollador Web | Full Stack Junior
 
-Currently, two official plugins are available:
+Bienvenido a mi portafolio personal. Soy **Diego Tardón**, Analista Programador, apasionado por el desarrollo web, el diseño de interfaces modernas y la creación de soluciones tecnológicas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este sitio reúne mis proyectos, habilidades técnicas y experiencia, reflejando mi evolución como desarrollador y mi interés por seguir aprendiendo nuevas tecnologías.
 
-## React Compiler
+## 🚀 Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Frontend**
+- React
+- TypeScript
+- JavaScript
+- HTML5 y CSS3
+- Tailwind CSS
+- Vite
 
-## Expanding the Oxlint configuration
+**Backend y bases de datos**
+- Node.js
+- Express.js
+- PostgreSQL
+- Supabase
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+**Herramientas**
+- Git y GitHub
+- Visual Studio Code
+- Vercel
+- Figma
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## 💻 Proyectos destacados
+
+### NexDesk — Sistema de Tickets TI
+
+Aplicación web para gestionar solicitudes de soporte técnico, con autenticación, roles de usuario y panel de administración.
+
+**Tecnologías:** React, TypeScript, Tailwind CSS y Supabase.
+
+### PC MATCH — Plataforma de Hardware
+
+Plataforma orientada a la comparación de componentes de PC, compatibilidad de hardware y análisis de rendimiento mediante benchmarks.
+
+**Tecnologías:** React, TypeScript, Vite y Supabase.
+
+### Portafolio Personal
+
+Sitio web diseñado para presentar mis proyectos, habilidades y experiencia profesional mediante una interfaz moderna, responsiva y animaciones interactivas.
+
+**Tecnologías:** React, TypeScript, Vite y CSS.
+
+## 🎨 Diseño
+
+El portafolio combina una estética moderna inspirada en el estilo Y2K, elementos visuales cinematográficos, efectos interactivos y una identidad visual propia.
+
+Su diseño está enfocado en ofrecer una experiencia atractiva, fluida y adaptable a distintos dispositivos.
+
+## ⚙️ Instalación y ejecución
+
+Clona este repositorio:
+
+```bash
+git clone https://github.com/Diego-Tardon/diego-portfolio.git
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Accede al proyecto:
+
+```bash
+cd diego-portfolio
+```
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+
+Ejecuta el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+Genera la versión de producción:
+
+```bash
+npm run build
+```
+
+## 📬 Contacto
+
+Estoy interesado en oportunidades laborales, colaboraciones y proyectos que me permitan seguir desarrollando mis habilidades como programador.
+
+- **GitHub:** [Diego-Tardon](https://github.com/Diego-Tardon)
+- **Ubicación:** Concepción, Chile
+- **Especialidad:** Desarrollo Web / Full Stack Junior
+
+---
+
+**Diseñado y desarrollado por Diego Tardón.**
