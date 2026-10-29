@@ -1,26 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
-/* =========================================
-   DIEGO TARDON — PORTFOLIO
-   1. Tokens y base
-   2. Navbar
-   3. Hero Y2K
-   4. Secciones (proyectos, experiencia, habilidades)
-   5. Footer
-   6. Animaciones globales
-   7. Responsive
-   8. Accesibilidad
-========================================= */
-
-/* =========================================
-   1. TOKENS Y BASE
-========================================= */
-
 :root {
   font-family: "DM Sans", sans-serif;
   color-scheme: dark;
 
-  /* Colores */
   --bg: #15131c;
   --surface: #211c2b;
   --surface-light: #30283d;
@@ -32,20 +15,16 @@
   --border: rgba(190, 166, 224, 0.16);
   --border-strong: #51415f;
 
-  /* Tipografía */
   --font-display: "Space Grotesk", sans-serif;
 
-  /* Movimiento */
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-soft: cubic-bezier(0.45, 0, 0.25, 1);
 
-  /* Layout */
   --nav-height: 76px;
   --radius-sm: 9px;
   --radius-md: 16px;
   --radius-lg: 18px;
 
-  /* Imagen del hero (se puede cambiar sin tocar las máscaras) */
   --y2k-image: url("/hero-y2k.png");
 }
 
@@ -111,10 +90,6 @@ button:focus-visible {
 #contacto {
   scroll-margin-top: 80px;
 }
-
-/* =========================================
-   2. NAVBAR
-========================================= */
 
 .navbar {
   position: fixed;
@@ -204,10 +179,6 @@ button:focus-visible {
   letter-spacing: 1.5px;
 }
 
-/* =========================================
-   3. HERO Y2K
-========================================= */
-
 .hero.hero-y2k {
   position: relative;
   display: flex;
@@ -223,7 +194,6 @@ button:focus-visible {
     linear-gradient(120deg, #111019, #1d1729 70%, #261b35);
 }
 
-/* Suelo de rejilla estilo Y2K con perspectiva */
 .hero.hero-y2k::before {
   content: "";
   position: absolute;
@@ -259,7 +229,6 @@ button:focus-visible {
   width: 100%;
 }
 
-/* Texto: entrada escalonada de cada bloque */
 .hero-y2k-content {
   min-width: 0;
 }
@@ -317,7 +286,6 @@ button:focus-visible {
   overflow-wrap: anywhere;
 }
 
-/* Degradado animado en la línea destacada del título */
 .hero.hero-y2k .hero-y2k-title span {
   display: block;
 
@@ -394,7 +362,6 @@ button:focus-visible {
   transform: translateY(-3px);
 }
 
-/* ---------- Estatua Y2K ---------- */
 
 .hero-y2k-art {
   position: relative;
@@ -407,13 +374,6 @@ button:focus-visible {
   background: transparent;
 }
 
-/*
-  Capas de movimiento (no se pisan entre sí):
-  - transform  → inclinación 3D con el mouse (--tilt-x / --tilt-y)
-  - translate  → flotación
-  - rotate     → balanceo
-  - scale/opacity/filter → entrada
-*/
 .y2k-stage {
   --tilt-x: 0;
   --tilt-y: 0;
@@ -436,7 +396,6 @@ button:focus-visible {
     y2kFloat 7s var(--ease-soft) 1.2s infinite;
 }
 
-/* Halo de luz que respira detrás de la estatua */
 .y2k-stage::before {
   content: "";
   position: absolute;
@@ -452,7 +411,6 @@ button:focus-visible {
   pointer-events: none;
 }
 
-/* Sombra en el suelo: se encoge cuando la estatua sube */
 .y2k-stage::after {
   content: "";
   position: absolute;
@@ -479,7 +437,6 @@ button:focus-visible {
   filter: drop-shadow(0 15px 30px rgba(124, 70, 218, 0.22));
 }
 
-/* Capas con la silueta de la imagen como máscara */
 .y2k-rainbow,
 .y2k-shine {
   position: absolute;
@@ -490,7 +447,6 @@ button:focus-visible {
   mask: var(--y2k-image) center / contain no-repeat;
 }
 
-/* Reflejo iridiscente */
 .y2k-rainbow {
   background: linear-gradient(
     120deg,
@@ -507,7 +463,6 @@ button:focus-visible {
     y2kIridescence 7s var(--ease-soft) infinite;
 }
 
-/* Brillo cromado: barrido rápido y pausa larga */
 .y2k-shine {
   background: linear-gradient(
     105deg,
@@ -522,7 +477,6 @@ button:focus-visible {
   animation: y2kShine 6s var(--ease-soft) infinite;
 }
 
-/* Destellos: cada uno con su propio tamaño, ritmo y posición */
 .y2k-sparkle {
   --size: 24px;
   --dur: 4s;
@@ -555,7 +509,6 @@ button:focus-visible {
 .sparkle-five  { --x: 85%; --y: 28%; --size: 14px; --dur: 3.2s; --delay: -1.6s; }
 .sparkle-six   { --x: 12%; --y: 72%; --size: 20px; --dur: 5s;   --delay: -2.6s; }
 
-/* Indicador de scroll */
 .hero-y2k-scroll {
   position: absolute;
   left: 50%;
@@ -579,10 +532,6 @@ button:focus-visible {
 .hero-y2k-scroll:hover {
   color: var(--purple);
 }
-
-/* =========================================
-   4. SECCIONES GENERALES
-========================================= */
 
 .section {
   padding: 100px 0;
@@ -624,7 +573,6 @@ button:focus-visible {
   line-height: 1.8;
 }
 
-/* ---------- Proyectos ---------- */
 
 .projects-section {
   background: #1c1925;
@@ -675,7 +623,6 @@ button:focus-visible {
   background: linear-gradient(135deg, #424b79, #25243b);
 }
 
-/* Marco tipo navegador */
 
 .browser-header {
   display: flex;
@@ -905,7 +852,6 @@ button:focus-visible {
   border-color: var(--purple);
 }
 
-/* ---------- Experiencia y formación ---------- */
 
 .experience-section {
   padding: 90px 0;
@@ -1010,7 +956,6 @@ button:focus-visible {
   color: white;
 }
 
-/* ---------- Habilidades ---------- */
 
 .skills-section {
   padding: 90px 0;
@@ -1059,9 +1004,6 @@ button:focus-visible {
   border-color: var(--purple);
 }
 
-/* =========================================
-   5. FOOTER
-========================================= */
 
 .footer {
   padding: 35px 0;
@@ -1151,9 +1093,6 @@ button:focus-visible {
   background: #342641;
 }
 
-/* =========================================
-   6. ANIMACIONES
-========================================= */
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
@@ -1165,7 +1104,6 @@ button:focus-visible {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Reveal.tsx */
 
 .reveal {
   opacity: 0;
@@ -1183,9 +1121,7 @@ button:focus-visible {
   transform: translateY(0);
 }
 
-/* ---------- Hero Y2K ---------- */
 
-/* Entrada: aparece con desenfoque y un pequeño zoom */
 @keyframes y2kEnter {
   from {
     opacity: 0;
@@ -1199,25 +1135,21 @@ button:focus-visible {
   }
 }
 
-/* Flotación suave con balanceo */
 @keyframes y2kFloat {
   0%, 100% { translate: 0 0;     rotate: -1.2deg; }
   50%      { translate: 0 -18px; rotate: 1.2deg; }
 }
 
-/* El halo late al mismo ritmo que la flotación */
 @keyframes y2kHalo {
   0%, 100% { opacity: 0.55; scale: 0.94; }
   50%      { opacity: 1;    scale: 1.06; }
 }
 
-/* La sombra se aleja del suelo cuando la estatua sube */
 @keyframes y2kGroundShadow {
   0%, 100% { scale: 1;    opacity: 0.8; }
   50%      { scale: 0.78; opacity: 0.4; }
 }
 
-/* Iridiscencia que va y viene */
 @keyframes y2kRainbow {
   to { background-position: 300% 0; }
 }
@@ -1227,7 +1159,6 @@ button:focus-visible {
   50%      { opacity: 0.22; }
 }
 
-/* Barrido de brillo y luego pausa (45% → 100%) */
 @keyframes y2kShine {
   0%   { background-position: -150% 0; }
   45%  { background-position: 250% 0; }
@@ -1243,14 +1174,10 @@ button:focus-visible {
   to { background-position: 250% 0; }
 }
 
-/* La rejilla avanza hacia el espectador */
 @keyframes y2kGrid {
   to { background-position: 0 52px, 52px 0; }
 }
 
-/* =========================================
-   7. RESPONSIVE
-========================================= */
 
 @media (max-width: 1050px) {
   .portfolio-projects {
@@ -1302,7 +1229,6 @@ button:focus-visible {
     width: calc(100% - 36px);
   }
 
-  /* Navegación */
 
   .nav-inner {
     width: calc(100% - 36px);
@@ -1420,8 +1346,6 @@ button:focus-visible {
     display: none;
   }
 
-  /* Secciones */
-
   .section {
     padding: 65px 0;
   }
@@ -1438,8 +1362,6 @@ button:focus-visible {
   .section-heading > p {
     font-size: 13px;
   }
-
-  /* Proyectos */
 
   .portfolio-projects {
     grid-template-columns: 1fr;
@@ -1467,8 +1389,6 @@ button:focus-visible {
     font-size: 9px;
   }
 
-  /* Experiencia */
-
   .career-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -1477,8 +1397,6 @@ button:focus-visible {
   .career-card {
     padding: 23px;
   }
-
-  /* Habilidades */
 
   .skills-compact-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1493,8 +1411,6 @@ button:focus-visible {
   .skill-compact-card span {
     font-size: 11px;
   }
-
-  /* Footer */
 
   .footer-inner {
     flex-direction: column;
@@ -1525,8 +1441,6 @@ button:focus-visible {
     font-size: 11px;
   }
 }
-
-/* Dispositivos táctiles: sin hover ni inclinación */
 @media (hover: none) {
   .portfolio-project-card:hover,
   .career-card:hover,
@@ -1539,9 +1453,6 @@ button:focus-visible {
   }
 }
 
-/* =========================================
-   8. ACCESIBILIDAD
-========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   *,

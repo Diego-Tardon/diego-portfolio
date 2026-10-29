@@ -16,10 +16,6 @@ export default function Hero() {
               ))}
             </div>
 
-            <p className="hero-y2k-eyebrow">
-              DESARROLLADOR WEB · FULL STACK JUNIOR
-            </p>
-
             <h1 className="hero-y2k-title">
               Hola, soy
               <span>Diego Tardon.</span>

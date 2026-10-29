@@ -7,16 +7,13 @@ export default function Contact() {
     <footer id="contacto" className="footer">
       <div className="container footer-inner">
 
-        {/* NOMBRE Y PROFESIÓN */}
         <div className="footer-brand">
           <a href="#inicio" className="logo">
             Diego Tardon<span>.</span>
           </a>
 
-          <p>Desarrollador Web Full Stack</p>
         </div>
 
-        {/* REDES SOCIALES */}
         <div className="footer-socials">
           <a
             href="https://github.com/Diego-Tardon"
@@ -39,7 +36,6 @@ export default function Contact() {
           </a>
         </div>
 
-        {/* CORREO ELECTRÓNICO */}
         <a
           href="mailto:dtardon.acruces@gmail.com?subject=Contacto%20desde%20tu%20portfolio"
           className="footer-email"
@@ -49,7 +45,6 @@ export default function Contact() {
           <ArrowUpRight size={15} />
         </a>
 
-        {/* COPYRIGHT Y VOLVER ARRIBA */}
         <div className="footer-right">
           <span>
             © {new Date().getFullYear()}
