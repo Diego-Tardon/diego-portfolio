@@ -28,20 +28,6 @@ Este sitio reúne mis proyectos, habilidades técnicas y experiencia, reflejando
 - Vercel
 - Figma
 
-## 💻 Proyectos destacados
-
-### NexDesk — Sistema de Tickets TI
-
-Aplicación web para gestionar solicitudes de soporte técnico, con autenticación, roles de usuario y panel de administración.
-
-**Tecnologías:** React, TypeScript, Tailwind CSS y Supabase.
-
-### PC MATCH — Plataforma de Hardware
-
-Plataforma orientada a la comparación de componentes de PC, compatibilidad de hardware y análisis de rendimiento mediante benchmarks.
-
-**Tecnologías:** React, TypeScript, Vite y Supabase.
-
 ### Portafolio Personal
 
 Sitio web diseñado para presentar mis proyectos, habilidades y experiencia profesional mediante una interfaz moderna, responsiva y animaciones interactivas.
